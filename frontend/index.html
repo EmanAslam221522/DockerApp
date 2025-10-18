@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend App</title>
+</head>
+<body>
+    <h1>Welcome to Frontend!</h1>
+    <button onclick="fetchBackend()">Get Backend Message</button>
+    <p id="message"></p>
+
+    <script>
+        function fetchBackend() {
+            fetch('http://backend:5000/api')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('message').innerText = data.message;
+                });
+        }
+    </script>
+</body>
+</html>
